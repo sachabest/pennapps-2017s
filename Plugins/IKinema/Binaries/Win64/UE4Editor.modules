@@ -1,0 +1,12 @@
+{
+	"Changelist" : 3249277,
+	"CompatibleChangelist" : 3195953,
+	"BuildId" : "02ca72ed-715a-4e16-a214-6648bd8e2130",
+	"Modules" : 
+	{
+		"JsonUtils" : "UE4Editor-JsonUtils.dll",
+		"IKinemaCore" : "UE4Editor-IKinemaCore.dll",
+		"IKinemaEditor" : "UE4Editor-IKinemaEditor.dll",
+		"IKinemaRigTool" : "UE4Editor-IKinemaRigTool.dll"
+	}
+}
