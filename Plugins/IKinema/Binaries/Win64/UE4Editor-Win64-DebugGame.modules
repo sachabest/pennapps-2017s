@@ -1,0 +1,12 @@
+{
+	"Changelist" : 3249277,
+	"CompatibleChangelist" : 3195953,
+	"BuildId" : "80eefa88-8507-4248-a62e-dab56d7948bc",
+	"Modules" : 
+	{
+		"JsonUtils" : "UE4Editor-JsonUtils-Win64-DebugGame.dll",
+		"IKinemaCore" : "UE4Editor-IKinemaCore-Win64-DebugGame.dll",
+		"IKinemaEditor" : "UE4Editor-IKinemaEditor-Win64-DebugGame.dll",
+		"IKinemaRigTool" : "UE4Editor-IKinemaRigTool-Win64-DebugGame.dll"
+	}
+}
