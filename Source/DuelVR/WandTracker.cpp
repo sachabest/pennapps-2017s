@@ -8,9 +8,17 @@ UWandTracker::UWandTracker()
 {
 	// Set this component to be initialized when the game starts, and to be ticked every frame.  You can turn these features
 	// off to improve performance if you don't need them.
-	PrimaryComponentTick.bCanEverTick = true;
+	//PrimaryComponentTick.bCanEverTick = true;
 
 	stateMachien = NewObject<UGraphNode>();
+	// ...
+}
+
+
+// Called when the game starts
+void UWandTracker::BeginPlay()
+{
+	Super::BeginPlay();
 
 	UGraphNode *zero_start = NewObject<UGraphNode>();
 	zero_start->Value = 0;
@@ -40,15 +48,6 @@ UWandTracker::UWandTracker()
 	zero_start->Edges.Push(two_end);
 	one_start->Edges.Push(three_end);
 	three_start->Edges.Push(one_start);
-	// ...
-}
-
-
-// Called when the game starts
-void UWandTracker::BeginPlay()
-{
-	Super::BeginPlay();
-
 	// ...
 	
 }

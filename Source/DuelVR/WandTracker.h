@@ -25,12 +25,16 @@ public:
 	void LockStartingTransform();
 	void EndMotion();
 
-	UFUNCTION(BlueprintImplementableEvent, Category = "Spell Casting")
-	void EFailedCast();
+	// https://answers.unrealengine.com/questions/210255/how-would-i-create-an-event-on-an-actorcomponent-t.html
+	// do this later
+	DECLARE_EVENT(UWandTracker, EFailedCastEvent)
+	EFailedCastEvent &EFailedCast() { return FailedCastEvent; }
 
-	UFUNCTION(BlueprintImplementableEvent, Category = "Spell Casting")
-	void ESucceededCast(ESpellTypeEnum CastSpell);
+	DECLARE_EVENT(UWandTracker, ESucceededCastEvent)
+	ESucceededCastEvent &ESucceededCast(ESpellTypeEnum CastSpell) { return SuceededCastEvent; }
 private:
+	EFailedCastEvent FailedCastEvent;
+	ESucceededCastEvent SuceededCastEvent;
 
  	ESpellTypeEnum ValidateSequence();
 	bool InMedianRadius();
