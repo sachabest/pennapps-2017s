@@ -102,24 +102,24 @@ ESpellTypeEnum UWandTracker::ValidateSequence()
 int UWandTracker::InQuadrant()
 {
 	FVector delta = ComponentToWorld.GetLocation() - startingTransform.GetLocation();
-	if (delta.X >= 0 && delta.Y >= 0) {
-		if (delta.Y >= delta.X) {
+	if (delta.X >= 0 && delta.Z >= 0) {
+		if (delta.Z >= delta.X) {
 			return 0;
 		}
 		else {
 			return 1;
 		}
 	}
-	else if (delta.X < 0 && delta.Y >= 0) {
-		if (delta.Y >= (-1 * delta.X)) {
+	else if (delta.X < 0 && delta.Z >= 0) {
+		if (delta.Z >= (-1 * delta.X)) {
 			return 0;
 		}
 		else {
 			return 3;
 		}
 	}
-	else if (delta.X < 0 && delta.Y < 0) {
-		if (delta.X < delta.Y) {
+	else if (delta.X < 0 && delta.Z < 0) {
+		if (delta.X < delta.Z) {
 			return 3;
 		}
 		else {
@@ -127,7 +127,7 @@ int UWandTracker::InQuadrant()
 		}
 	}
 	else {
-		if (delta.X >= (-1 * delta.Y)) {
+		if (delta.X >= (-1 * delta.Z)) {
 			return 1;
 		}
 		else {
