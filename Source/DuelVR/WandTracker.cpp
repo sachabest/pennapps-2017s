@@ -81,14 +81,14 @@ void UWandTracker::EndMotion()
 	if (currentSequence.Num()) {
 		ESpellTypeEnum spell = ValidateSequence();
 		if (spell != ESpellTypeEnum::ST_Invalid) {
-			ESucceededCast(spell);
+			OnSuceededCast.Broadcast(spell);
 		}
 		else {
-			EFailedCast();
+			OnFailedCast.Broadcast();
 		}
 	}
 	else {
-		EFailedCast();
+		OnFailedCast.Broadcast();
 	}
 	bInMotion = false;
 	currentSequence.Empty();

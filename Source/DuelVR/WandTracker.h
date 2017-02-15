@@ -7,6 +7,9 @@
 #include "GraphNode.h"
 #include "WandTracker.generated.h"
 
+DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnSuceededCast, ESpellTypeEnum, SucceededSpell);
+DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnFailedCast);
+
 UCLASS( ClassGroup=(Custom), meta=(BlueprintSpawnableComponent) )
 class DUELVR_API UWandTracker : public USceneComponent
 {
@@ -25,16 +28,11 @@ public:
 	void LockStartingTransform();
 	void EndMotion();
 
-	// https://answers.unrealengine.com/questions/210255/how-would-i-create-an-event-on-an-actorcomponent-t.html
-	// do this later
-	DECLARE_EVENT(UWandTracker, EFailedCastEvent)
-	EFailedCastEvent &EFailedCast() { return FailedCastEvent; }
-
-	DECLARE_EVENT(UWandTracker, ESucceededCastEvent)
-	ESucceededCastEvent &ESucceededCast(ESpellTypeEnum CastSpell) { return SuceededCastEvent; }
+	UPROPERTY(BlueprintAssignable, Category = "Spell Casting")
+		FOnFailedCast OnFailedCast;
+	UPROPERTY(BlueprintAssignable, Category = "Spell Casting")
+		FOnSuceededCast OnSuceededCast;
 private:
-	EFailedCastEvent FailedCastEvent;
-	ESucceededCastEvent SuceededCastEvent;
 
  	ESpellTypeEnum ValidateSequence();
 	bool InMedianRadius();
